@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="/js/ext/angular.min.js" type="text/javascript">
+	</script>
+	<script src="/js/app.js" type="text/javascript">
+	</script>
+	<script src="/js/controller/proyectoCtlr.js" type="text/javascript">
+	</script>
+	<script src="/js/service/proyectoService.js" type="text/javascript">
+	</script>
+<meta charset="UTF-8">
+<title>Registro de Activos</title>
+</head>
+<body>
+<h1>REGISTRO DE PROYECTO</h1>
+	<div data-ng-app="app" data-ng-controller="proyectoCtrl" >
+	<table id="basicData">
+		<tr data-ng-init="init()">
+			<td> Nombre Proyecto</td>
+			<td ><select name="repeatSelect" id="repeatSelect" data-ng-model="ActivoIn.proyecto">
+				<option>Seleccione...</option>
+      			<option data-ng-repeat="proyecto in proyectoSelect" value="{{proyecto.numero}}">{{proyecto.nombre}}</option>
+    		</select></td>
+		</tr>
+		<tr>
+			<td>Activo derivado</td>
+			<td><input type="text" id="nombre" name="nombre" data-ng-model="ActivoIn.nombre" required="required"/></td>
+		</tr>
+		<tr>
+			<td> Estado de desarrollo</td>
+			<td><select name="estadoDeDesarrollo" id="estadoDeDesarrollo" data-ng-model="ActivoIn.estadoDeDesarrollo">
+      			<option value="Laboratorio">Laboratorio</option>
+      			<option value="Escala Industrial">Escala Industrial</option>
+      			<option value="Escala Pre-Industrial">Escala Pre-Industrial</option>
+      			<option value="Prototipo">Prototipo</option>
+      			<option value="Prototipo funcional">Prototipo funcional</option>
+      			<option value="Tecnologia disponible para clientes">Tecnologia disponible para clientes</option>
+      			<option value="N/A">N/A</option>      			
+    		</select></td>
+		</tr>
+		<tr>
+			<td> Tipo Activo</td>
+			<td><select name="tipoActivo" id="tipoActivo" data-ng-model="ActivoIn.tipoActivo">
+      			<option value="Objeto">Objeto</option>
+      			<option value="Compuesto quimico">Compuesto Químico</option>
+      			<option value="Mezcla o composicion de materia">Mezcla o composición de materia</option>
+      			<option value="Máquina, aparato o sistema">Máquina, aparato o sistema</option>
+      			<option value="Metodo o procedimiento">Método o procedimiento</option>
+      			<option value="Diseño Industrial">Diseño Industrial</option>
+      			<option value="Obra Literaria o Artística">Obra Literaria o Artística</option>
+      			<option value="Base de datos">Base de datos</option>
+      			<option value="Conocimiento tradicional o ancestral">Conocimiento tradicional o ancestral</option>
+      			<option value="Software">Software</option>
+    		</select></td>
+		</tr>
+	</table><br /> 
+	<input type="button" id="save1" name="saveBtn" value="Registrar" data-ng-click="saveActivo(ActivoIn)" /> 
+	</div>
+	<br>
+	<a href="/index.html">Menú principal</a>
+</body>
+</html>

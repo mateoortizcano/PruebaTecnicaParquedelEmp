@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="/js/ext/angular.min.js" type="text/javascript">
+	</script>
+	<script src="/js/app.js" type="text/javascript">
+	</script>
+	<script src="/js/controller/proyectoCtlr.js" type="text/javascript">
+	</script>
+	<script src="/js/service/proyectoService.js" type="text/javascript">
+	</script>
+	<meta charset="UTF-8">
+	<title>Registro proyecto</title>
+</head>
+<body>
+	<h1>REGISTRO DE PROYECTO</h1>
+	<div data-ng-app="app" data-ng-controller="proyectoCtrl">
+	<table id="basicData">
+		<tr>
+			<td>Marcador</td>
+			<td><input type="text" id="Marcador" name="Marcador" data-ng-model="proyectoIn.marcador" required="required"/></td>
+		</tr>
+		<tr>
+			<td> Nombre Proyecto</td>
+			<td><input type="text" id="nombre" name="nombre" data-ng-model="proyectoIn.nombre" required="required"/></td>
+		</tr>
+		<tr>
+			<td> Sector Tecnológico</td>
+			<td><input type="text" id="sectorTecnologico" name="sectorTecnologico" data-ng-model="proyectoIn.sectorTecnologico"
+			 required="required"/></td>
+		</tr>
+		<tr>
+			<td> Grupo Investigación</td>
+			<td><input type="text" id="grupoInvestigacion" name="grupoInvestigacion" data-ng-model="proyectoIn.grupoInvestigacion"
+			 required="required"/></td>
+		</tr>
+		<tr>
+			<td> Quien diligencia</td>
+			<td><input type="text" id="quienDiligencia" name="quienDiligencia" data-ng-model="proyectoIn.quienDiligencia"
+			 required="required"/></td>
+		</tr>
+		<tr>
+			<td> Descripción</td>
+			<td><input type="text" id="descripcion" name="descripcion" data-ng-model="proyectoIn.descripcion"
+			 required="required"/></td>
+		</tr>
+	</table><br /> 
+	<input type="button" id="save1" name="saveBtn" value="Registrar" data-ng-click="save(proyectoIn)" /> 
+	</div>
+	<br>
+	<a href="/index.html">Menú principal</a>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="/js/ext/angular.min.js" type="text/javascript">
+	</script>
+	<script src="/js/app.js" type="text/javascript">
+	</script>
+	<script src="/js/controller/proyectoCtlr.js" type="text/javascript">
+	</script>
+	<script src="/js/service/proyectoService.js" type="text/javascript">
+	</script>
+<meta charset="UTF-8">
+<title>Lista de activos</title>
+</head>
+<body>
+	<h1>LISTADO DE ACTIVOS POR PROYECTO</h1>
+	<div data-ng-app="app" data-ng-controller="proyectoCtrl" >
+		<table id="basicData">
+			<tr data-ng-init="init()">
+			<td> Nombre Proyecto</td>
+			<td ><select name="repeatSelect" id="repeatSelect" data-ng-model="codigoProyecto">
+				<option>Seleccione...</option>
+      			<option data-ng-repeat="proyecto in proyectoSelect" value="{{proyecto.numero}}">{{proyecto.nombre}}</option>
+    		</select></td>
+		</tr>
+		</table>
+		<input type="button" id="save1" name="saveBtn" value="Consultar Activos" data-ng-click="getActivos(codigoProyecto)" /><br><br/> 
+		<input type="button" id="save1" name="saveBtn" value="Datos Proyecto" data-ng-click="getProyecto(codigoProyecto)" /> 
+		<br><br>
+		<h3>Información Proyecto</h3>
+		Marcador:             {{proyectoOut.marcador}}<br/>
+		Nombre Proyecto:      {{proyectoOut.nombre}}<br/>
+		Sector tecnológico:   {{proyectoOut.sectorTecnologico}}<br/>
+		Grupo Investigación:  {{proyectoOut.grupoInvestigacion}} <br/>
+		Quien diligencia:     {{proyectoOut.quienDiligencia}}<br/>
+		Descripción:          {{proyectoOut.descripcion}}<br/>
+		Numero activos:       {{proyectoOut.numeroActivos}}<br/>
+		<br><br>
+		<div data-ng-show="activoslist.length != 0">
+		<h3>Lista Activos</h3>	
+		<table id="basicData">
+			<tr>	
+				<th>Activo Derivado</th>			
+				<th>Estado de desarrollo</th>
+				<th>Tipo Activo</th>
+			</tr>
+			<tr data-ng-repeat="item in activoslist ">
+				<td>{{item.nombre}}</td>
+				<td>{{item.estadoDeDesarrollo}}</td>
+				<td>{{item.tipoActivo}}</td>
+			</tr>
+		</table>
+	</div><br /> <br />
+		
+	</div>
+	<br>
+	<a href="/index.html">Menú principal</a>
+</body>
+</html>
